@@ -1,8 +1,8 @@
 
 /**
- * 
+ *
  * this is for test
- * 
+ *
  */
 
 const PI = Math.PI / 180;
@@ -151,15 +151,15 @@ function getLinePosition(lineString, layer) {
             positionsV.push(v);
         }
     } else {
-        if (Array.isArray(lineString)) lineString = new maptalks.LineString(lineString);
-        if (!lineString || !(lineString instanceof maptalks.LineString)) return;
+        if (Array.isArray(lineString)) lineString = new bnmap.LineString(lineString);
+        if (!lineString || !(lineString instanceof bnmap.LineString)) return;
         const z = 0;
         const coordinates = lineString.getCoordinates();
         const centerPt = layer.coordinateToVector3(lineString.getCenter());
         for (let i = 0, len = coordinates.length; i < len; i++) {
             let coordinate = coordinates[i];
             if (Array.isArray(coordinate)) {
-                coordinate = new maptalks.Coordinate(coordinate);
+                coordinate = new bnmap.Coordinate(coordinate);
             }
             const v = layer.coordinateToVector3(coordinate, z).sub(centerPt);
             positions.push(v.x, v.y, v.z);
@@ -233,14 +233,14 @@ function _getLinePosition(lineString, layer) {
             positionsV.push(v);
         }
     } else {
-        if (Array.isArray(lineString)) lineString = new maptalks.LineString(lineString);
-        if (!lineString || !(lineString instanceof maptalks.LineString)) return;
+        if (Array.isArray(lineString)) lineString = new bnmap.LineString(lineString);
+        if (!lineString || !(lineString instanceof bnmap.LineString)) return;
         const z = 0;
         const coordinates = lineString.getCoordinates();
         for (let i = 0, len = coordinates.length; i < len; i++) {
             let coordinate = coordinates[i];
             if (Array.isArray(coordinate))
-                coordinate = new maptalks.Coordinate(coordinate);
+                coordinate = new bnmap.Coordinate(coordinate);
             const v = layer.coordinateToVector3(coordinate, z);
             positions.push(v.x, v.y, v.z);
             positionsV.push(v);
